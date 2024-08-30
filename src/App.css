@@ -1,0 +1,449 @@
+:root {
+  --background-color: #272727;
+  --message-background-color: rgb(46,46,46);
+  --text-color: rgb(214,214,214);
+  --accent-color: rgb(55,55,55);
+  --button-color: rgb(48,48,48);
+  --button-hover-color: rgb(60,60,60);
+  --confirm-button-color: rgba(43, 173, 114, 0.2);
+  --cancel-button-color: rgba(255,76,76, 0.2); 
+  --confirm-button-hover-color: rgba(43, 173, 114, 0.4);
+  --cancel-button-hover-color: rgba(255,76,76, 0.4);
+  --border-radius: 13px;
+  --font-size: 14px;
+  --font-family: 'BlinkMacSystemFont', sans-serif;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  font-size: var(--font-size);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--button-color);
+  color: var(--text-color);
+  border-bottom: 2px solid var(--accent-color);
+  font-size: 16px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.top-bar .user-info {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 2px;
+}
+.user-rating {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+.menu-dropdown {
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 16px;
+  background-color: var(--message-background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.menu-dropdown button {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background-color: var(--message-background-color);
+  color: var(--text-color);
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-dropdown button:hover {
+  background-color: var(--accent-color);
+}
+
+.info-box, .swap-container {
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--message-background-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+.modal {
+  background-color: var(--message-background-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  width: 320px;
+  max-width: 90%;
+  color: var(--text-color);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: left;
+  position: relative;
+  transform: scale(0.7);
+  animation: scaleIn 0.3s forwards;
+}
+
+.modal h2 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.modal p {
+  margin: 10px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--button-color);
+  border: none;
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal .close-button:hover {
+  background-color: var(--accent-color);
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  to {
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+      opacity: 0;
+  }
+}
+
+@keyframes scaleOut {
+  to {
+      transform: scale(0.7);
+  }
+}
+
+.info-box {
+  margin-bottom: 20px;
+}
+
+.info-box h2 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+.info-box p {
+  margin: 5px 0;
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+.swap-container {
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swap-input-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.swap-input-label {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: var(--text-color);
+}
+
+.swap-input-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.swap-input {
+  flex: 1;
+  padding: 10px 8px;
+  background-color: var(--background-color);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  font-size: 13px;
+  color: var(--text-color);
+  box-sizing: border-box;
+  -webkit-appearance: none; /* Убирает системный стиль на iOS */
+  -moz-appearance: none; /* Убирает системный стиль на Firefox */
+  appearance: none; /* Убирает системный стиль на всех браузерах */
+}
+
+.swap-input:focus {
+  outline: none;
+  border-color: var(--text-color);
+}
+.swap-button {
+width: 100%;
+padding: 12px;
+background-color: var(--button-color);
+border: none;
+border-radius: var(--border-radius);
+font-size: 13px;
+color: var(--text-color);
+cursor: not-allowed;
+transition: background-color 0.3s, color 0.3s;
+}
+.swap-button.active{
+  background-color: rgb(214,214,214); /* Яркий цвет кнопки, когда поле не пустое */
+  color: rgb(39,39,39); /* Цвет текста кнопки в активном состоянии */
+}
+
+.swap-button.active:hover{
+  background-color: rgb(87, 87, 87); /* Цвет кнопки при наведении */
+  color: rgb(193, 193, 193); /* Цвет текста при наведении */
+}
+
+
+
+
+
+
+/* Убираем стрелки в числовых полях на всех браузерах */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+.currency-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  padding: 5px;
+  margin-left: 8px;
+}
+
+.currency-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 30px;
+}
+
+.swap-result {
+  width: 100%;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  padding: 8px 0;
+  border-radius: var(--border-radius);
+}
+
+.swap-button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--button-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 13px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+.swap-button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.highlight-text {
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--accent-color);
+  padding: 3px 7px;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px;
+  background-color: var(--button-color);
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
+}
+
+.button.confirm {
+  background-color: var(--confirm-button-color);
+  color: #ffffff;
+}
+
+.button.cancel {
+  background-color: var(--cancel-button-color);
+  color: #ffffff;
+}
+
+.button.confirm:hover {
+  background-color: var(--confirm-button-hover-color);
+}
+
+.button.cancel:hover {
+  background-color: var(--cancel-button-hover-color);
+}
+
+.amount-container {
+  text-align: center;
+  margin-bottom: 10px; /* Отступ между блоками */
+}
+
+.amount-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 5px 10px;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 2px; /* Уменьшили отступ между текстом и суммой */
+  white-space: nowrap;
+  box-sizing: border-box;
+  max-width: 200px; /* Максимальная ширина блока */
+}
+
+.currency-icon {
+  width: 14px; /* Размер иконки */
+  height: 14px;
+  margin-left: 5px; /* Отступ между текстом и иконкой */
+}
+
+p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-color);
+  text-align: center;
+}
+.modal-button-bot {
+    background-color: var(--button-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    font-size: var(--font-size);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: auto;
+    max-width: 200px;
+    margin: 20px auto 0; /* Центрирование и отступ сверху */
+    display: block; /* Центрирование кнопки */
+    text-align: center;
+}
+
+.modal-button-bot:hover {
+    background-color: var(--button-hover-color);
+}
